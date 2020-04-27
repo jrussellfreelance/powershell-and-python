@@ -1,6 +1,3 @@
-# Powershell & Python Documentation
+# Powershell & Python
 
 > A work in progress.
-
-- [Powershell](/powershell/)
-- [Python](/python/)
