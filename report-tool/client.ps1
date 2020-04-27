@@ -1,6 +1,8 @@
 ﻿# This script grabs system information on the local computer, converts it into a json object, and writes it to a file.
 # The resulting json file can be used in many ways, like a web app.
 
+
+# Use WMI to query the system for information
 # RAM
 $RAM = Get-WmiObject -Query "SELECT TotalVisibleMemorySize, FreePhysicalMemory FROM Win32_OperatingSystem"
 
@@ -80,4 +82,4 @@ $info = $info | ConvertTo-JSON
 # Output to JSON file
 $secpasswd = ConvertTo-SecureString "testing123" -AsPlainText -Force
 $mycreds = New-Object System.Management.Automation.PSCredential ("admin", $secpasswd)
-Invoke-WebRequest -Uri "http://192.168.0.103:8083/info-store/add" -UseBasicParsing -Method Post -ContentType "application/json" -Credential $mycreds -Body $info
+Invoke-WebRequest -Uri "http://localhost:8083/info-store/add" -UseBasicParsing -Method Post -ContentType "application/json" -Credential $mycreds -Body $info

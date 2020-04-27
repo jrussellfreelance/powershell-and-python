@@ -1,4 +1,9 @@
 # Snippets
+## Install Azure Powershell Module
+Installs the latest Azure Powershell module.
+```powershell
+Install-Module -Name Az -AllowClobber
+```
 ## Silent Chrome Install
 The script downloads the latest installer to your temp directory, then deletes it after silent installation.
 
