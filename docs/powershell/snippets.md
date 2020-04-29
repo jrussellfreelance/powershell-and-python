@@ -17,3 +17,11 @@ Invoke-WebRequest "http://dl.google.com/chrome/install/latest/chrome_installer.e
 Start-Process -FilePath $Path\$Installer -Args "/silent /install" -Verb RunAs -Wait
 Remove-Item $Path\$Installer
 ```
+
+## Export Password to Encrypted File
+* [Guide](https://www.pdq.com/blog/secure-password-with-powershell-encrypting-credentials-part-1)
+
+The following line will export the entered password as a secure encrypted file.
+```powershell
+Read-Host "Enter Password" -AsSecureString |  ConvertFrom-SecureString | Out-File "C:\Temp\Password.txt"
+```
