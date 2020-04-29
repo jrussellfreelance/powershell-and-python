@@ -20,8 +20,18 @@ Remove-Item $Path\$Installer
 
 ## Export Password to Encrypted File
 * [Guide](https://www.pdq.com/blog/secure-password-with-powershell-encrypting-credentials-part-1)
-
-The following line will export the entered password as a secure encrypted file.
+### Exporting SecureString from Read-Host
 ```powershell
 Read-Host "Enter Password" -AsSecureString |  ConvertFrom-SecureString | Out-File "C:\Temp\Password.txt"
+```
+### Creating SecureString object
+```powershell
+$pass = Get-Content "C:\Temp\Password.txt" | ConvertTo-SecureString
+```
+### Creating PSCredential object
+```powershell
+$User = "MyUserName"
+$File = "C:\Temp\Password.txt"
+$MyCredential=New-Object -TypeName System.Management.Automation.PSCredential `
+ -ArgumentList $User, (Get-Content $File | ConvertTo-SecureString)
 ```
