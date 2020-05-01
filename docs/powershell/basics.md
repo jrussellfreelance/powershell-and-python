@@ -7,3 +7,8 @@ param (
     $ParameterName = "test-server"
 )
 ```
+### Where Syntax
+```powershell
+$workspace = (Get-AzOperationalInsightsWorkspace).Where( { $_.Name -eq $workspaceName })
+$workspace = Get-AzOperationalInsightsWorkspace | Where { $_.Name -eq $workspaceName }
+```
