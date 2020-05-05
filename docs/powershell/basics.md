@@ -26,7 +26,8 @@ foreach($WindowsVM in $WindowsVMs) {
 }
 ```
 ### Objects
-- [Read ME](https://www.itprotoday.com/powershell/powershell-basics-introduction-objects)
+- [Read me!](https://www.itprotoday.com/powershell/powershell-basics-introduction-objects)
+
 List properties and methods for the results of a command:
 ```powershell
 Get-Process | Get-Member
