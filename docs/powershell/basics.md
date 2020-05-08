@@ -3,6 +3,7 @@
 ```powershell
 param (
     [Parameter(Mandatory=$true)]
+    [ValidateNotNullOrEmpty()]
     [string]
     $ParameterName = "test-server"
 )
@@ -70,4 +71,9 @@ Get-Service | Where-Object {$_.Status -eq "Running" `
 #### Creating .NET class object
 ```powershell
 $ping = New-Object -TypeName Net.NetworkInformation.Ping
+```
+## Jobs
+### start job
+```powershell
+Start-Job -ScriptBlock { hostname }
 ```
