@@ -25,6 +25,7 @@ foreach($WindowsVM in $WindowsVMs) {
     $names += $vmname
 }
 ```
+
 ### Objects
 - [Read me!](https://www.itprotoday.com/powershell/powershell-basics-introduction-objects)
 
@@ -49,8 +50,6 @@ Select-Object @{n='firstname';e={'Jesse'}},@{n='lastname';e={'Russell'}} -InputO
 $obj = New-Object -TypeName psobject
 $obj | Add-Member -MemberType NoteProperty -Name firstname -Value 'Jesse'
 $obj | Add-Member -MemberType NoteProperty -Name lastname -Value 'Russell'
-
-# add a method to an object
 $obj | Add-Member -MemberType ScriptMethod -Name "GetName" -Value {$this.firstname +' '+$this.lastname}
 ```
 4. Using `New-Object` and hashtables
